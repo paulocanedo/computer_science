@@ -1,0 +1,25 @@
+{
+  "name": "computer_science",
+  "version": "0.0.1",
+  "description": "implementation of most commons data structures and algorithms",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulocanedo/computer_science.git"
+  },
+  "keywords": [
+    "computer",
+    "science",
+    "data",
+    "structure",
+    "algorithms"
+  ],
+  "author": "Paulo Canedo",
+  "license": "GPLv2",
+  "bugs": {
+    "url": "https://github.com/paulocanedo/computer_science/issues"
+  }
+}

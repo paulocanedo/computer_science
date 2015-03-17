@@ -1,0 +1,24 @@
+Pilha
+Fila
+Lista simplesmente ligada
+ - uma Fila é uma lista simplesmente encadeada
+Lista duplamente ligada
+Mapa
+Conjunto (Set)
+Estruturas hash (tabela, árvore, lista)
+Heap
+Fila Prioritária usando heap
+
+Árvore
+Árvore B
+Árvore B*
+Árvore B+
+Árvore Binária
+Árvore Binária de busca
+Árvore AVL
+Árvore de análise sintática (Parse Tree)
+Árvore de decisão (Decision Tree)
+
+Grafos
+
+Thread

@@ -1,3 +1,5 @@
+var nodeBuilder = require('./node');
+
 /**
 *** Queue JavaScript implementation without using javascript native collections
 *** The functionalities implemented are:
@@ -21,16 +23,12 @@ function Queue() {
 	var first = null;
 	var last  = null;
 
-	var createNode = function(element, prevElement) {
-		return {
-			element: element,
-			prevElement: prevElement
-		};
-	};
-
 	var self = {
 		enqueue: function(element) { // O(1)
-			var node = createNode(element, null); // O(1)
+			var node = nodeBuilder.create({
+				element: element,
+				prevElement: null
+			}); // O(1)
 
 			if(self.isEmpty()) {
 				first = last = node;
@@ -40,11 +38,10 @@ function Queue() {
 			}
 
 			size++;
-			return element;
 		},
 		dequeue: function() { // O(1)
 			if(self.isEmpty()) {
-				throw new Error('empty queue, cant dequeue...');
+				throw Error('empty queue, cant dequeue...');
 			}
 
 			var temp = first;

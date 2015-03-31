@@ -1,3 +1,5 @@
+var nodeBuilder = require('./node');
+
 /**
 *** Stack JavaScript implementation without using javascript native collections
 *** The functionalities implemented are:
@@ -18,24 +20,19 @@ function Stack() {
 	var size = 0;
 	var head = null;
 
-	var createNode = function(element, underElement) {
-		return {
-			element: element, 
-			underElement: underElement
-		};
-	}
-
 	var self = {
 		push: function(element) {
-			var node = createNode(element, head);
+			var node = nodeBuilder.create({
+				element: element,
+				underElement: head
+			});
 			head = node;
 			
 			size++;
-			return head.element;
 		},
 		pop: function() {
 			if(self.isEmpty()) {
-				throw new Error('stack empty, cant pop anymore...');
+				throw Error('stack empty, cant pop anymore...');
 			}
 
 			var element = head.element;
@@ -46,7 +43,7 @@ function Stack() {
 		},
 		peek: function() {
 			if(self.isEmpty()) {
-				throw new Error('stack empty...');
+				throw Error('stack empty...');
 			}
 
 			return head.element;

@@ -21,5 +21,10 @@
   "license": "GPLv2",
   "bugs": {
     "url": "https://github.com/paulocanedo/computer_science/issues"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-bench": "^1.1.0",
+    "gulp-mocha": "^2.0.1"
   }
 }

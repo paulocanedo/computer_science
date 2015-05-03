@@ -9,7 +9,7 @@
 *** posOrder:  iterate pos order
 **/
 
-var nodeBuilder = require('./node');
+var nodeBuilder = require('./node_builder');
 
 var binaryTree = (function() {
 	return {

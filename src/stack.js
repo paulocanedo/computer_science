@@ -1,4 +1,4 @@
-var nodeBuilder = require('./node');
+var nodeBuilder = require('./node_builder');
 
 /**
 *** Stack JavaScript implementation without using javascript native collections
@@ -27,7 +27,7 @@ function Stack() {
 				underElement: head
 			});
 			head = node;
-			
+
 			size++;
 		},
 		pop: function() {

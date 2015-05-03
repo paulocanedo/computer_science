@@ -1,2 +1,5 @@
-# computer_science
-implementation of most commons data structures and algorithms
+# Computer Science structures and algorithms
+implemented:
+- Stack
+- Queue
+- Binary Tree

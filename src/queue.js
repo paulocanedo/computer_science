@@ -1,4 +1,4 @@
-var nodeBuilder = require('./node');
+var nodeBuilder = require('./node_builder');
 
 /**
 *** Queue JavaScript implementation without using javascript native collections
@@ -8,8 +8,8 @@ var nodeBuilder = require('./node');
 *** dequeue: remove the first element of the collection
 **/
 
-//it is better use a pointer to previous element, 
-//if u do a pointer to next element u will have to 
+//it is better use a pointer to previous element,
+//if u do a pointer to next element u will have to
 //iterate collection to find second node
 
 var queue = (function() {

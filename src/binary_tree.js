@@ -47,27 +47,13 @@ function BinaryTree() {
 		return lastNode;
 	};
 
-	var navigatePreOrder = function(lastNode, callback) {
+	var navigate = function(lastNode, orderType, callback) {
 		if(lastNode) {
-			navigatePreOrder(lastNode.left, callback);
-			navigatePreOrder(lastNode.right, callback);
-			callback(lastNode.element);
-		}
-	};
-
-	var navigateInOrder = function(lastNode, callback) {
-		if(lastNode) {
-			navigateInOrder(lastNode.left, callback);
-			callback(lastNode.element);
-			navigateInOrder(lastNode.right, callback);
-		}
-	};
-
-	var navigatePosOrder = function(lastNode, callback) {
-		if(lastNode) {
-			callback(lastNode.element);
-			navigateInOrder(lastNode.left, callback);
-			navigateInOrder(lastNode.right, callback);
+			if(orderType === 'pos') callback(lastNode.element);
+			navigate(lastNode.left, orderType, callback);
+			if(orderType === 'in') callback(lastNode.element);
+			navigate(lastNode.right, orderType, callback);
+			if(orderType === 'pre') callback(lastNode.element);
 		}
 	};
 
@@ -79,7 +65,7 @@ function BinaryTree() {
 				right: null
 			});
 
-			if(root === null) {
+			if(!root) {
 				root = node;
 			} else {
 				insertNode(root, node);
@@ -89,42 +75,41 @@ function BinaryTree() {
 
 		},
 		preOrder: function(callback) {
-			navigatePreOrder(root, callback);
+			navigate(root, 'pre', callback);
 		},
 		inOrder: function(callback) {
-			navigateInOrder(root, callback);
+			navigate(root, 'in', callback);
 		},
 		posOrder: function(callback) {
-			navigatePosOrder(root, callback);
+			navigate(root, 'pos', callback);
 		},
 		isEmpty: function() {
 			return root === null;
 		},
 		size: function() {
-			return size;
+			return this.isEmpty() ? 0 : (1 + size);
 		},
 		toString: function() {
-			if(self.isEmpty()) {
+			if(this.isEmpty()) {
 				return 'empty binary_tree';
 			}
+
+			var text = '';
+			var first = true;
+			(function iterate(lastNode) {
+				if(lastNode) {
+					iterate(lastNode.left);
+					text += first ? '' : ', ';
+					text += lastNode.element;
+					first = false;
+					iterate(lastNode.right);
+				}
+				return '';
+			})(root);
+
+			return text;
 		}
 	};
 }
 
 module.exports = binaryTree;
-
-var tree = binaryTree.create();
-tree.insert(5);
-tree.insert(12);
-tree.insert(10);
-tree.insert(15);
-tree.insert(20);
-tree.insert(25);
-tree.insert(8);
-tree.insert(3);
-
-console.log('size', tree.size());
-
-tree.posOrder(function(elem) {
-	console.log(elem);
-});

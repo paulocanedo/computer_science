@@ -83,6 +83,28 @@ function BinaryTree() {
 		posOrder: function(callback) {
 			navigate(root, 'pos', callback);
 		},
+		biggest: function() {
+			var current = root;
+			while(current) {
+				if(current.right) {
+					current = current.right;
+				} else {
+					return current.element;
+				}
+			}
+			return null;
+		},
+		smallest: function() {
+			var current = root;
+			while(current) {
+				if(current.left) {
+					current = current.left;
+				} else {
+					return current.element;
+				}
+			}
+			return null;
+		},
 		isEmpty: function() {
 			return root === null;
 		},

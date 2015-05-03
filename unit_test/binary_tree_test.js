@@ -69,6 +69,16 @@ describe('BinaryTree', function() {
       assert.equal(true, correct);
     });
   });
+  describe('#biggest()', function() {
+    it('should return the biggest value 25', function() {
+      assert.equal(25, tree.biggest());
+    });
+  });
+  describe('#smallest()', function() {
+    it('should return the biggest value 3', function() {
+      assert.equal(3, tree.smallest());
+    });
+  });
   // describe('#pop()', function() {
   //   it('should return 3 -> 2 -> 1', function() {
   //     assert.equal(3, s.pop());

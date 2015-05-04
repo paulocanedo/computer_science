@@ -1,4 +1,4 @@
-var nodeBuilder = require('./node');
+var nodeBuilder = require('./node_builder');
 
 /**
 *** LinkedList JavaScript implementation without using javascript native collections
@@ -106,7 +106,7 @@ function LinkedList() {
 			var current = first;
 			for(var i = 0; i < size; i++) {
 				if(index === i) {
-					insertBefore(current, element);
+					// insertBefore(current, element);
 					break;
 				}
 				current = current.next;
